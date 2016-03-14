@@ -10,6 +10,12 @@ app.use(express.static(__dirname + "/public"));
 
 require('./app/routes.js')(app);
 
+process.env.CONSUMER_SECRET = process.argv[2];
+
+process.env.TOKEN_SECRET = process.argv[3];
+
+console.log(process.env.NODE_ENV);
+
 app.set('port', process.env.PORT || 8080);
 
 app.listen(app.get('port'), function(){
