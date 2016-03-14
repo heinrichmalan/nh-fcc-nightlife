@@ -1,5 +1,5 @@
 module.exports = function(app){
     app.get('/', function(req, res){
-        res.render('home', envkey=process.env['CONSKEY']);
+        res.render('home', {envkey=process.env.CONSKEY});
     })
 }
