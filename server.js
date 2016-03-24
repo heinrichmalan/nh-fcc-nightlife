@@ -35,6 +35,6 @@ require('./app/routes.js')(app,passport);
 
 app.set('port', process.env.PORT || 8080);
 
-app.listen(process.env.port || 8080, function(){
+app.listen(app.get('port'), function(){
     console.log("Server running at http://localhost:"+app.get('port')+" - Press Ctrl + C to terminate.");
 });
