@@ -25,7 +25,6 @@ module.exports = function(set_parameters, callback) {
     
     var signature = oauthSig.generate(httpMethod, url, parameters, consumerSecret, tokenSecret, {encodeSignature: false});
     
-    console.log(signature);
     
     parameters.oauth_signature = signature;
     
@@ -36,7 +35,6 @@ module.exports = function(set_parameters, callback) {
    props.sort();
     
     for (var prop in props) {
-        console.log(props[prop]);
         queryString += props[prop];
         queryString += "=";
         queryString += parameters[props[prop]];
@@ -47,10 +45,7 @@ module.exports = function(set_parameters, callback) {
     
     var apiURL = url+"?"+queryString;
     
-    console.log(apiURL);
-    
     request(apiURL, function(error, response, body) {
-        console.log(body);
         return callback(error, response, body);
     })
 }
