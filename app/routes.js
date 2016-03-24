@@ -119,9 +119,23 @@ module.exports = function(app,passport){
                 }
             })
         } else {
+            
+            var baseUrl;
+
+            switch(app.get('env')){
+                case 'development':
+                    baseUrl = "http://localhost:8080";
+                    break;
+                case 'production':
+                    baseUrl = "https://nh-fcc-nightlife.herokuapp.com";
+                    break;
+                default:
+                    throw new Error('Unknown execution environment: ' + app.get('env'));
+            }
+            
             req.session.goingId = req.params.busId;
             res.contentType('application/json');
-            var data = JSON.stringify('http://localhost:8080/auth/twitter')
+            var data = JSON.stringify(baseUrl +'/auth/twitter');
             res.header('Content-Length', data.length);
             res.end(data);
         }
