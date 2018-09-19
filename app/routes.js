@@ -17,6 +17,7 @@ module.exports = function(app,passport){
                     res.status(500);
                     res.end();
                 } else if (yelpData['error']) {
+                    res.status(500);
                     getData(location);
                 } else {
                     res.status(200);
