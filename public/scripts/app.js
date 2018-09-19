@@ -159,7 +159,7 @@ var App = React.createClass({
         if (window.location.href.match(/localhost\:8080/) !== -1) {
             baseUrl = "";
         } else {
-            baseUrl = "https://nh-fcc-nightlife.herokaupp.com";
+            baseUrl = "http://nh-fcc-nightlife.herokaupp.com";
         }
 
         $("#loading").css("display", "block");
@@ -194,6 +194,9 @@ var App = React.createClass({
                     $("#loading").css("display", "none");
                     context.generateList();
                 });
+            },
+            error: function ajaxError(data) {
+                console.log("There was an error processing the request");   
             }
         });
     },
