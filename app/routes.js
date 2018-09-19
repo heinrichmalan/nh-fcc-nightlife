@@ -14,10 +14,13 @@ module.exports = function(app,passport){
             
             yelp({term: "bar", location: location}, function(error, response, body){
                 var yelpData = JSON.parse(body);
-                if(error){ 
+                console.log(yelpData)
+                if(error){
+                    console.log(error);
                     res.status(500);
                     res.end();
                 } else if (yelpData['error']) {
+                    console.log(yelpData['error']);
                     res.status(500);
                     res.end();
                     getData(location);
