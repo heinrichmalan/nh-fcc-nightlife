@@ -30,7 +30,7 @@ module.exports = function(app, passport) {
     });
     
     passport.use(new TwitterStrategy({
-        consumerKey: "tVemD40OqPZS7V1crdZCuGsKU",
+        consumerKey: process.env.TWITCONSKEY,
         consumerSecret: process.env.TWITKEY,
         callbackURL: baseUrl + "/auth/twitter/callback"
         },
