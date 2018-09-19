@@ -6,6 +6,7 @@ var flash = require('connect-flash');
 var passport = require('passport');
 var mongoose = require('mongoose');
 var process = require('process');
+var bodyParser = require('body-parser');
 
 var mongOpts = {
     server: {
@@ -26,7 +27,8 @@ app.use(flash());
 require('./app/passport.js')(app, passport);
 
 app.use(require('cookie-parser')());
-app.use(require('body-parser')());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 app.use(require('express-session')({ secret: 'cool cats climbing crags', resave: true, saveUninitialized: true}));
 app.use(passport.initialize());
 app.use(passport.session());
