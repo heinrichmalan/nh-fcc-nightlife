@@ -32,7 +32,7 @@ module.exports = function(app, passport) {
     passport.use(new TwitterStrategy({
         consumerKey: process.env.TWITCONSKEY,
         consumerSecret: process.env.TWITKEY,
-        callbackURL: baseUrl + "/auth/twitter/callback"
+        callbackURL: "/auth/twitter/callback"
         },
         function(token, tokenSecret, profile, cb) {
             process.nextTick(function(){
