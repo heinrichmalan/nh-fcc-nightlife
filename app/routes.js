@@ -7,6 +7,7 @@ module.exports = function(app,passport){
     })
     
     app.post('/', function(req, res){
+        console.log("Got post request");
         var location = req.body.location;
         
         var getData = function(location){
@@ -18,6 +19,7 @@ module.exports = function(app,passport){
                     res.end();
                 } else if (yelpData['error']) {
                     res.status(500);
+                    res.end();
                     getData(location);
                 } else {
                     res.status(200);
