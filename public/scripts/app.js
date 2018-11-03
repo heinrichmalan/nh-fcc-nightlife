@@ -60,7 +60,7 @@ var Business = React.createClass({
                     { className: "busTopRow row" },
                     React.createElement(
                         "a",
-                        { href: this.props.url, target: "_blank" },
+                        { href: this.props.url, target: "_blank", style: {color: "black"} },
                         React.createElement(
                             "span",
                             null,
